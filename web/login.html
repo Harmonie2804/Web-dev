@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Nhập - MENOVA</title>
+    <link rel="stylesheet" href="css/desktop.css" media="screen and (min-width: 769px)">
+    <link rel="stylesheet" href="css/mobile.css" media="screen and (max-width: 768px)">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-box hidden" data-section="auth">
+            <h2>Đăng Nhập</h2>
+            <form class="auth-form">
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Mật khẩu" required>
+                <button type="submit" class="btn">Đăng Nhập</button>
+            </form>
+            <p>Chưa có tài khoản? <a href="register.html">Đăng ký ngay</a></p>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('load', function() {
+            document.body.classList.add('loaded');
+            const authBox = document.querySelector('.hidden');
+            authBox.classList.add('visible');
+            authBox.classList.remove('hidden');
+        });
+    </script>
+</body>
+</html>

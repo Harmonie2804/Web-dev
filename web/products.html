@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sản Phẩm - MENOVA</title>
+    <link rel="stylesheet" href="css/desktop.css" media="screen and (min-width: 769px)">
+    <link rel="stylesheet" href="css/mobile.css" media="screen and (max-width: 768px)">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="images/logo.png" alt="MENOVA Logo">
+                <h1>MENOVA</h1>
+            </div>
+            <button class="menu-toggle">☰</button> 
+            <nav>
+                <ul>
+                    <li><a href="register.html">Đăng Ký</a></li>
+                    <li><a href="login.html">Đăng Nhập</a></li>
+                    <li><a href="index.html">Trang Chủ</a></li>
+                    <li><a href="about.html">Giới Thiệu</a></li>
+                    <li><a href="products.html">Sản Phẩm</a></li>
+                    <li><a href="contact.html">Liên Hệ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+
+    <section class="main-content container hidden" data-section="main-content">
+        <h3>Tất Cả Sản Phẩm</h3>
+        <div class="product-list hidden" data-section="products">
+            <div class="product-item">
+                <img src="images/product1.jpg" alt="Sản phẩm 1">
+                <h4>Sản phẩm 1</h4>
+                <p>$50.00</p>
+                <button class="btn-add">Thêm vào giỏ</button>
+            </div>
+            <div class="product-item">
+                <img src="images/product2.jpg" alt="Sản phẩm 2">
+                <h4>Sản phẩm 2</h4>
+                <p>$70.00</p>
+                <button class="btn-add">Thêm vào giỏ</button>
+            </div>
+            <div class="product-item">
+                <img src="images/product3.jpg" alt="Sản phẩm 3">
+                <h4>Sản phẩm 3</h4>
+                <p>$30.00</p>
+                <button class="btn-add">Thêm vào giỏ</button>
+            </div>
+        </div>
+    </section>
+
+
+
+    <footer>
+        <div class="container">
+            <p>© 2025 MENOVA. All Rights Reserved.</p>
+            <p><a href="contact.html">Liên Hệ</a> | <a href="#">Chính Sách</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // Hiệu ứng tải trang
+        window.addEventListener('load', function() {
+            document.body.classList.add('loaded');
+            // Hiển thị các phần tử ngay khi tải trang với hiệu ứng 3D
+            const sections = document.querySelectorAll('.hidden');
+            sections.forEach(section => {
+                section.classList.add('visible');
+                section.classList.remove('hidden');
+            });
+        });
+
+        // Hiệu ứng cuộn để hiện/thiết thông tin với hiệu ứng 3D xoay 360 độ
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('[data-section]');
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const sectionBottom = section.getBoundingClientRect().bottom;
+                const windowHeight = window.innerHeight;
+
+                if (sectionTop < windowHeight * 0.75 && sectionBottom > 0) {
+                    section.classList.add('visible');
+                    section.classList.remove('hidden');
+                } else {
+                    section.classList.remove('visible');
+                    section.classList.add('hidden');
+                }
+            });
+        });
+
+        // Toggle menu
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

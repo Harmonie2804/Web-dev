@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liên Hệ - MENOVA</title>
+    <link rel="stylesheet" href="css/desktop.css" media="screen and (min-width: 769px)">
+    <link rel="stylesheet" href="css/mobile.css" media="screen and (max-width: 768px)">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="images/logo.png" alt="MENOVA Logo">
+                <h1>MENOVA</h1>
+            </div>
+            <button class="menu-toggle">☰</button>
+            <nav>
+                <ul>
+                    <li><a href="register.html">Đăng Ký</a></li>
+                    <li><a href="login.html">Đăng Nhập</a></li>
+                    <li><a href="index.html">Trang Chủ</a></li>
+                    <li><a href="about.html">Giới Thiệu</a></li>
+                    <li><a href="products.html">Sản Phẩm</a></li>
+                    <li><a href="contact.html">Liên Hệ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="main-content container hidden" data-section="main-content">
+        <h3>Liên Hệ Với Chúng Tôi</h3>
+        <p>Email: contact@MENOVA.com</p>
+        <p>Hotline: (+84) 123-456-789</p>
+        <p>Địa chỉ: 123 Đường MENOVA, TP. Hà Nội</p>
+        <form class="contact-form">
+            <input type="text" placeholder="Họ và tên" required>
+            <input type="email" placeholder="Email" required>
+            <textarea placeholder="Tin nhắn" required></textarea>
+            <button type="submit" class="btn">Gửi</button>
+        </form>
+    </section>
+
+    <aside class="sidebar container hidden" data-section="sidebar">
+        <h3>Giờ Làm Việc</h3>
+        <p>Thứ 2 - Thứ 6: 8:00 - 17:00</p>
+        <p>Thứ 7: 9:00 - 12:00</p>
+        <p>Chủ nhật: Nghỉ</p>
+    </aside>
+
+    <footer>
+        <div class="footer-content">
+            <p>© 2025 MENOVA. All Rights Reserved.</p>
+            <p><a href="contact.html">Liên Hệ</a> | <a href="#">Chính Sách</a></p>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('load', function() {
+            document.body.classList.add('loaded');
+            const sections = document.querySelectorAll('.hidden');
+            sections.forEach(section => {
+                section.classList.add('visible');
+                section.classList.remove('hidden');
+            });
+        });
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('[data-section]');
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const sectionBottom = section.getBoundingClientRect().bottom;
+                const windowHeight = window.innerHeight;
+
+                if (sectionTop < windowHeight * 0.75 && sectionBottom > 0) {
+                    section.classList.add('visible');
+                    section.classList.remove('hidden');
+                } else {
+                    section.classList.remove('visible');
+                    section.classList.add('hidden');
+                }
+            });
+        });
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
