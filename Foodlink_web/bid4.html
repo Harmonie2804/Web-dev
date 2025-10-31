@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Foodlink - Đấu giá bữa ăn cộng đồng</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #f0fff4, #ffffff);
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    header {
+      background-color: #43a047;
+      color: white;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+    }
+    .logo-wrap img {
+      height: 50px;
+      margin-right: 12px;
+    }
+    .logo-name {
+      font-size: 24px;
+      font-weight: 700;
+    }
+    nav a {
+      color: white;
+      margin-left: 24px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: opacity 0.3s;
+    }
+    nav a:hover { opacity: 0.85; }
+
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.1);
+      animation: fadeIn 1s ease;
+    }
+    .product-preview {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+    .product-preview img {
+      width: 300px;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .product-info h3 {
+      font-size: 22px;
+      color: #2e7d32;
+      margin-bottom: 8px;
+    }
+    .product-info p {
+      margin: 4px 0;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h2 {
+      color: #2e7d32;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    .section {
+      margin-top: 40px;
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 14px;
+      margin-top: 10px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+    button {
+      background-color: #2e7d32;
+      color: white;
+      padding: 14px 28px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 600;
+      margin-top: 24px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #1b5e20;
+    }
+
+    .highlight-box {
+      background: #e8f5e9;
+      padding: 16px;
+      border-left: 6px solid #43a047;
+      margin: 20px 0;
+      border-radius: 12px;
+    }
+
+    #countdown {
+      font-weight: bold;
+      color: #d32f2f;
+      font-size: 20px;
+    }
+    .bid-entry {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px;
+      border-bottom: 1px solid #eee;
+    }
+    .bid-entry span { min-width: 100px; }
+    footer {
+      background-color: #2e7d32;
+      color: white;
+      text-align: center;
+      padding: 24px;
+      margin-top: 80px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-wrap">
+      <img src="logo2.png" alt="Foodlink Logo" />
+      <div class="logo-name">FOODLINK</div>
+    </div>
+    <nav>
+      <a href="#bid">Đấu giá</a>
+      <a href="#choose">Chọn người nhận</a>
+      <a href="#guardian">Người ký gửi</a>
+      <a href="#confirm">Xác nhận</a>
+    </nav>
+  </header>
+
+  <div class="container" id="bid">
+    <div class="product-preview">
+      <img src="bami.jpg" alt="Combo Bánh Mì Thịt Nướng">
+      <div class="product-info">
+        <h3>🥖 Combo Bánh Mì Thịt Nướng + Trứng Ốp</h3>
+        <p><strong>Thời gian sẵn sàng:</strong> 17:30 - 19:00 hôm nay</p>
+        <p><strong>Ghi chú:</strong> Món ăn nấu thêm trong ngày, bánh giòn – thịt ướp thơm – có thể dùng liền</p>
+      </div>
+    </div>
+
+    <h2>💬 Gửi mức giá bạn đề xuất</h2>
+    <div class="highlight-box">
+      ⏱ Thời gian còn lại để bid: <span id="countdown">03:00</span>
+    </div>
+    <label for="price">Giá bạn sẵn sàng trả (VNĐ):</label>
+    <input type="number" id="price" placeholder="Ví dụ: 22000" />
+    <label for="message">Lời nhắn (tuỳ chọn):</label>
+    <textarea id="message" placeholder="Tôi thực sự cần bữa ăn hôm nay..."></textarea>
+    <button onclick="alert('✅ Bid đã được gửi!')">Gửi bid</button>
+  </div>
+
+  <!-- Các phần khác không đổi -->
+
+  <footer>
+    © 2025 Foodlink – Nền tảng chia sẻ bữa ăn cộng đồng, minh bạch và bền vững 🌱
+  </footer>
+
+  <script>
+    let timeLeft = 180;
+    const countdownEl = document.getElementById("countdown");
+    const interval = setInterval(() => {
+      const minutes = Math.floor(timeLeft / 60);
+      const seconds = timeLeft % 60;
+      countdownEl.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+      timeLeft--;
+      if (timeLeft < 0) {
+        clearInterval(interval);
+        countdownEl.textContent = "⏱ Hết giờ";
+      }
+    }, 1000);
+  </script>
+
+</body>
+</html>
